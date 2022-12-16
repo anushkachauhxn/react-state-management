@@ -4,3 +4,35 @@
   box-sizing: border-box;
   font-family: Cambria, serif;
 }
+
+body {
+  padding: 30px;
+  min-height: 100vh;
+  font-size: 20px;
+  text-align: center;
+  background-color: oldlace;
+}
+
+h2 {
+  padding: 36px;
+  color: brown;
+}
+
+p {
+  padding: 48px;
+}
+
+button {
+  padding: 8px;
+  color: white;
+  font-size: inherit;
+  background-color: maroon;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input {
+  width: 100px;
+  font-size: inherit;
+  text-align: center;
+}
