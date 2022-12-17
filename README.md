@@ -30,7 +30,7 @@ export const counterButtonClicked = (amount) => ({
 
 ## 2. Reducers
 
-- Reducers tell redux _how_ the state of our application should change whenever any given action occurs.
+- Reducers tell redux **how** the state of our application should change whenever any given action occurs.
 - Takes in: `current state` and `action`.
 - Returns: `new state` after action.
 
@@ -52,7 +52,7 @@ export const numberOfClicksReducer = (state = 0, action) => {
 
 ## 3. Selectors
 
-- Allow components to accurately _get_ data out of the state and occasionally to _transform_ data of the state.
+- Allow components to accurately **get** data out of the state and occasionally to **transform** data of the state.
 
 ```js
 export const numberOfClicksSelector = (state) => state.numberOfClicks;
