@@ -1,31 +1,15 @@
-# 🪐 React: State Management
-
-## 1. useState Hook
-
-```js
-import { useState } from "react";
-```
-
-```js
-const [value, setValue] = useState(0); // default value
-
-handleChange = () => {
-  setValue(value + 1); // takes a function that returns new value
-};
-```
-
-## 2. Context API
+# 🍒 Context API State Management
 
 - Allows components to share state without having to pass the data as props all the time.
 - Helps avoid **props drilling**.
 
-### Creating Context
+## Creating Context
 
 ```js
 const CounterContext = createContext();
 ```
 
-### Creating Custom Provider
+## Creating Custom Provider
 
 ```js
 const CounterProvider = ({ children }) => {
@@ -43,7 +27,7 @@ const CounterProvider = ({ children }) => {
 };
 ```
 
-### Using Context
+## Using Context
 
 - Wrap the necessary components in the provider.
 

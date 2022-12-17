@@ -9,7 +9,7 @@ const App = () => {
     <CounterProvider>
       <div className="app">
         <h4>State Management</h4>
-        <h2>useState Hook</h2>
+        <h2>Context</h2>
         <CounterDisplay />
         <CounterButton />
       </div>
