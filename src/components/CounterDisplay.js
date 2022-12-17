@@ -1,10 +1,8 @@
-import React, { useContext } from "react";
-import CounterContext from "../context/CounterContext";
+import React from "react";
+import { observer } from "mobx-react-lite";
 
-const CounterDisplay = () => {
-  const { numberOfClicks } = useContext(CounterContext);
+const DisplayCount = observer(({ counter }) => {
+  return <h2>{counter.numberOfClicks}</h2>;
+});
 
-  return <h2>{numberOfClicks}</h2>;
-};
-
-export default CounterDisplay;
+export default DisplayCount;

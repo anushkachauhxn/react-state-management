@@ -1,19 +1,19 @@
 import React from "react";
-import CounterProvider from "./context/CounterProvider";
+import Counter from "./mobx/Counter";
 import CounterDisplay from "./components/CounterDisplay";
 import CounterButton from "./components/CounterButton";
 import "./App.css";
 
+const counter = new Counter();
+
 const App = () => {
   return (
-    <CounterProvider>
-      <div className="app">
-        <h4>State Management</h4>
-        <h2>useState Hook</h2>
-        <CounterDisplay />
-        <CounterButton />
-      </div>
-    </CounterProvider>
+    <div className="app">
+      <h4>State Management</h4>
+      <h2>MobX</h2>
+      <CounterDisplay counter={counter} />
+      <CounterButton counter={counter} />
+    </div>
   );
 };
 
