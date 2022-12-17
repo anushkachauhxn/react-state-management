@@ -9,7 +9,13 @@ const CounterButton = () => {
 
   return (
     <div className="counter-button">
-      <p>You have clicked the button {clicksData.length} times.</p>
+      <p>
+        You have clicked the button{" "}
+        {clicksData.reduce((sum, click) => {
+          return sum + click.amount;
+        }, 0)}{" "}
+        times.
+      </p>
       <p>
         <label>
           Increment By:{" "}
