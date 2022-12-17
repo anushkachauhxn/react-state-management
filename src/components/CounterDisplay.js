@@ -1,8 +1,9 @@
-import React, { useContext } from "react";
-import CounterContext from "../context/CounterContext";
+import React from "react";
+import { useRecoilValue } from "recoil";
+import counterState from "../recoil/counterState";
 
 const CounterDisplay = () => {
-  const { numberOfClicks } = useContext(CounterContext);
+  const numberOfClicks = useRecoilValue(counterState);
 
   return <h2>{numberOfClicks}</h2>;
 };
