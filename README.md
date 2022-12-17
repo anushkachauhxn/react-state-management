@@ -1,60 +1,77 @@
-# 🪐 React: State Management
+# 🍇 MobX State Management
 
-## 1. useState Hook
+MobX takes a more object-oriented approach as compared to redux.
 
-```js
-import { useState } from "react";
+```
+npm install mobx mobx-react-lite
 ```
 
-```js
-const [value, setValue] = useState(0); // default value
+## Creating MobX State
 
-handleChange = () => {
-  setValue(value + 1); // takes a function that returns new value
-};
-```
-
-## 2. Context API
-
-- Allows components to share state without having to pass the data as props all the time.
-- Helps avoid **props drilling**.
-
-### Creating Context
+- Use a class to store the state.
+- The class can contain values and actions.
 
 ```js
-const CounterContext = createContext();
-```
+class Counter {
+  value = 0;
 
-### Creating Custom Provider
+  constructor() {
+    makeObservable(this, {
+      value: observable,
+      increment: action,
+    });
+  }
 
-```js
-const CounterProvider = ({ children }) => {
-  const [numberOfClicks, setNumberOfClicks] = useState(0);
-
-  const increment = (amount) => {
-    setNumberOfClicks(numberOfClicks + amount);
+  increment = (amount) => {
+    this.value += amount;
   };
-
-  return (
-    <CounterContext.Provider value={{ numberOfClicks, increment }}>
-      {children}
-    </CounterContext.Provider>
-  );
-};
+}
 ```
 
-### Using Context
+## Using MobX State
 
-- Wrap the necessary components in the provider.
+- Pass an instance of that class to components.
 
 ```js
-<CounterProvider>
-  <div className="app">...</div>
-</CounterProvider>
+const counter = new Counter();
 ```
-
-- Then, access the data in any of those components using useContext hook.
 
 ```js
-const { numberOfClicks, increment } = useContext(CounterContext);
+<DisplayCount counter={counter} />
+<CounterButton counter={counter} />
 ```
+
+### Important: Do not forget
+
+- use `makeObservable` or `makeAutoObservable` in the class constructor
+
+```js
+constructor() {
+  makeObservable(this, {
+    value: observable,
+    increment: action,
+  });
+}
+```
+
+or
+
+```js
+constructor() {
+  makeAutoObservable(this)
+}
+```
+
+- wrap your components in `observer`
+
+```js
+const CounterButton = observer(({ counter }) => {
+  ...
+});
+```
+
+#### _Note:_
+
+Since we are passing the class instance to components through **props**, it can again result in props drilling.
+
+We can use **Context API with MobX** to make the class instance available to all components.
