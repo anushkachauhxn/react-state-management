@@ -1,17 +1,11 @@
 import React from "react";
 import { useRecoilValue } from "recoil";
-import counterState from "../recoil/counterState";
+import numberOfClicksSelector from "../recoil/numberOfClicksSelector";
 
 const CounterDisplay = () => {
-  const clicksData = useRecoilValue(counterState);
+  const numberOfClicks = useRecoilValue(numberOfClicksSelector);
 
-  return (
-    <h2>
-      {clicksData.reduce((sum, click) => {
-        return sum + click.amount;
-      }, 0)}
-    </h2>
-  );
+  return <h2>{numberOfClicks}</h2>;
 };
 
 export default CounterDisplay;

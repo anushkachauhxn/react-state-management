@@ -1,21 +1,17 @@
 import React from "react";
-import { useRecoilState } from "recoil";
+import { useRecoilState, useRecoilValue } from "recoil";
 import counterState from "../recoil/counterState";
 import incrementByState from "../recoil/incrementByState";
+import numberOfClicksSelector from "../recoil/numberOfClicksSelector";
 
 const CounterButton = () => {
   const [clicksData, setClicksData] = useRecoilState(counterState);
   const [incrementBy, setIncrementBy] = useRecoilState(incrementByState);
+  const numberOfClicks = useRecoilValue(numberOfClicksSelector);
 
   return (
     <div className="counter-button">
-      <p>
-        You have clicked the button{" "}
-        {clicksData.reduce((sum, click) => {
-          return sum + click.amount;
-        }, 0)}{" "}
-        times.
-      </p>
+      <p>You have clicked the button {numberOfClicks} times.</p>
       <p>
         <label>
           Increment By:{" "}
