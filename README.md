@@ -11,7 +11,7 @@ _Note:_ All the components within recoil will share this state. It is useful in 
 npm install recoil
 ```
 
-### Creating Recoil State
+## Creating Recoil State
 
 - **Atoms** are functions that we can use to create new pieces of the Recoil state.
 
@@ -22,7 +22,7 @@ const counterState = atom({
 });
 ```
 
-### Using Recoil State
+## Using Recoil State
 
 Wrap the components in `<RecoilRoot>` and then access the state in any of those components using:
 
@@ -38,7 +38,7 @@ const numberOfClicks = useRecoilValue(counterState);
 const [numberOfClicks, setNumberOfClicks] = useRecoilState(counterState);
 ```
 
-### Using Selectors
+## Using Selectors
 
 **Selectors** allow us to define certain logic in one spot. Instead of defining the logic in multiple components, we can use a selector instead.
 
