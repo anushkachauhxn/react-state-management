@@ -5,7 +5,7 @@ import { counterButtonClicked } from "../redux/actions";
 
 const CounterButton = () => {
   const numberOfClicks = useSelector(numberOfClicksSelector);
-  const dispath = useDispatch();
+  const dispatch = useDispatch();
 
   const [incrementBy, setIncrementBy] = useState(1);
 
@@ -22,7 +22,7 @@ const CounterButton = () => {
           />
         </label>
       </p>
-      <button onClick={() => dispath(counterButtonClicked(incrementBy))}>
+      <button onClick={() => dispatch(counterButtonClicked(incrementBy))}>
         Click Me
       </button>
     </div>
