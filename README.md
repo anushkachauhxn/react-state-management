@@ -35,11 +35,26 @@ const CounterProvider = ({ children }) => {
     setNumberOfClicks(numberOfClicks + amount);
   };
 
-  /* The provider will provide the values and functions to the children. */
   return (
     <CounterContext.Provider value={{ numberOfClicks, increment }}>
       {children}
     </CounterContext.Provider>
   );
 };
+```
+
+### Using Context
+
+- Wrap the necessary components in the provider.
+
+```js
+<CounterProvider>
+  <div className="app">...</div>
+</CounterProvider>
+```
+
+- Then, access the data in any of those components using useContext hook.
+
+```js
+const { numberOfClicks, increment } = useContext(CounterContext);
 ```
