@@ -1,9 +1,9 @@
 import React from "react";
-import { useRecoilValue } from "recoil";
-import numberOfClicksSelector from "../recoil/numberOfClicksSelector";
+import { useSelector } from "react-redux";
+import { numberOfClicksSelector } from "../redux/selectors";
 
 const CounterDisplay = () => {
-  const numberOfClicks = useRecoilValue(numberOfClicksSelector);
+  const numberOfClicks = useSelector(numberOfClicksSelector);
 
   return <h2>{numberOfClicks}</h2>;
 };
