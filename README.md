@@ -1,5 +1,7 @@
 # 🪐 React: State Management
 
+_Switch between different branches to see usage examples._
+
 #### Contents:
 
 1. [useState Hook](#-1-usestate)
