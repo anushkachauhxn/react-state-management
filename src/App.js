@@ -10,7 +10,7 @@ const App = () => {
     <Provider store={store}>
       <div className="app">
         <h4>State Management</h4>
-        <h2>Recoil</h2>
+        <h2>Redux</h2>
         <CounterDisplay />
         <CounterButton />
       </div>
