@@ -116,3 +116,48 @@ const numberOfClicksSelector = selector({
 ```
 
 Access the modified value in any of those components using `useRecoilValue` hook.
+
+## 4. Redux
+
+### Actions
+
+- Any action that can potentially change the state of our application.
+- Eg: when user clicks on a button, when data finishes loading, when data starts loading.
+- It contains: `type` of action and `payload`
+
+```js
+export const counterButtonClicked = {
+  type: "COUNTER_BUTTON_CLICKED",
+  payload: { amount: 1 },
+};
+```
+
+### Reducers
+
+- Reducers tell redux _how_ the state of our application should change whenever any given action occurs.
+- Takes in: `current state` and `action`.
+- Returns: `new state` after action.
+
+```js
+export const numberOfClicksReducer = (state = 0, action) => {
+  const { type } = action;
+
+  switch (type) {
+    case "COUNTER_BUTTON_CLICKED":
+      return state + action.payload.amount;
+    default:
+      return state;
+  }
+};
+```
+
+- It generally involves a switch function for type of action involved.
+- Default case returns state as it is, i.e. no change.
+
+### Selectors
+
+- Allow components to accurately _get_ data out of the state and occasionally to _transform_ data of the state.
+
+```js
+export const numberOfClicksSelector = (state) => state.numberOfClicks;
+```
